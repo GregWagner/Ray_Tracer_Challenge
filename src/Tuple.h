@@ -1,6 +1,8 @@
 #ifndef TUPLE_H
 #define TUPLE_H
 
+namespace RT {
+
 class Tuple {
   public:
     Tuple(double x, double y, double z, double w) 
@@ -46,4 +48,11 @@ class Point : public Tuple {
       : Tuple(x, y, z, 1.0) { }
 };
 
+class Vector : public Tuple {
+  public:
+    Vector(double x, double y, double z) 
+      : Tuple(x, y, z, 0.0) { }
+};
+
+}
 #endif
