@@ -4,7 +4,7 @@
 class Tuple {
   public:
     Tuple(double x, double y, double z, double w) 
-    : x(x), y(y), z(z), w(w) {
+      : x(x), y(y), z(z), w(w) {
     }
 
     bool isPoint() const {
@@ -38,6 +38,12 @@ class Tuple {
     double z;
     double w;
 
+};
+
+class Point : public Tuple {
+  public:
+    Point(double x, double y, double z) 
+      : Tuple(x, y, z, 1.0) { }
 };
 
 #endif

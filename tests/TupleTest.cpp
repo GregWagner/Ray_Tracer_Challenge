@@ -28,3 +28,17 @@ SCENARIO("A tuple with w = 0.0 is a vector", "[tuple]") {
     }
   }
 }
+
+SCENARIO("point() creates tuples with w = 1.0)") {
+  GIVEN("p is a point") {
+    auto p = Point(4, -4, 3);
+    THEN("p is a tuple with w = 1.0") {
+      REQUIRE(p.getX() == 4);
+      REQUIRE(p.getY() == -4);
+      REQUIRE(p.getZ() == 3);
+      REQUIRE(p.getW() == 1.0);
+      REQUIRE(p.isPoint());
+      REQUIRE(!p.isVector());
+    }
+  }
+}
