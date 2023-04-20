@@ -7,7 +7,7 @@ namespace RT {
 
 class Tuple {
 public:
-    Tuple(double x = 0, double y = 0, double z = 0, double w = 0)
+    explicit Tuple(double x = 0, double y = 0, double z = 0, double w = 0)
         : x { x }
         , y { y }
         , z { z }
@@ -39,25 +39,25 @@ public:
     }
 
     auto operator+(const Tuple& other) const -> Tuple {
-        return { x + other.getX(), y + other.getY(), z + other.getZ(),
+        return Tuple { x + other.getX(), y + other.getY(), z + other.getZ(),
             w + other.getW() };
     }
 
     auto operator-(const Tuple& other) const -> Tuple {
-        return { x - other.getX(), y - other.getY(), z - other.getZ(),
+        return Tuple { x - other.getX(), y - other.getY(), z - other.getZ(),
             w - other.getW() };
     }
 
     auto operator-() const -> Tuple {
-        return { -x, -y, -z, -w };
+        return Tuple { -x, -y, -z, -w };
     }
 
     auto operator*(double scaler) const -> Tuple {
-        return { x * scaler, y * scaler, z * scaler, w * scaler };
+        return Tuple { x * scaler, y * scaler, z * scaler, w * scaler };
     }
 
     auto operator/(double scaler) const -> Tuple {
-        return { x / scaler, y / scaler, z / scaler, w / scaler };
+        return Tuple { x / scaler, y / scaler, z / scaler, w / scaler };
     }
 
     [[nodiscard]] auto magnitude() const -> double {
