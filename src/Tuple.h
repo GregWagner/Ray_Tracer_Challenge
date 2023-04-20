@@ -1,3 +1,13 @@
+/*
+ * Tuple.h
+ * A tuple represents an ordered list of numbers.
+ * Abstraction for things like position, direction, and distance.
+ *
+ * Note: w = 1 is a point, w = 0 is a vector.
+ *  * Adding a point (w=1) to a vector (w=0) reults in a point (w=1 + 0 = 1)
+ *  * Adding 2 vectors (w=0) results in a vector (w=0 + 0 = 0)
+ */
+
 #ifndef TUPLE_H
 #define TUPLE_H
 
