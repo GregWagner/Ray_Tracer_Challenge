@@ -14,53 +14,53 @@ public:
         , w { w } {
     }
 
-    bool isPoint() const {
+    [[nodiscard]] auto isPoint() const -> bool {
         return w == 1.0;
     }
 
-    bool isVector() const {
+    [[nodiscard]] auto isVector() const -> bool {
         return w == 0.0;
     }
 
-    double getX() const {
+    [[nodiscard]] auto getX() const -> double {
         return x;
     }
 
-    double getY() const {
+    [[nodiscard]] auto getY() const -> double {
         return y;
     }
 
-    double getZ() const {
+    [[nodiscard]] auto getZ() const -> double {
         return z;
     }
 
-    double getW() const {
+    [[nodiscard]] auto getW() const -> double {
         return w;
     }
 
-    Tuple operator+(const Tuple& other) const {
+    auto operator+(const Tuple& other) const -> Tuple {
         return { x + other.getX(), y + other.getY(), z + other.getZ(),
             w + other.getW() };
     }
 
-    Tuple operator-(const Tuple& other) const {
+    auto operator-(const Tuple& other) const -> Tuple {
         return { x - other.getX(), y - other.getY(), z - other.getZ(),
             w - other.getW() };
     }
 
-    Tuple operator-() const {
+    auto operator-() const -> Tuple {
         return { -x, -y, -z, -w };
     }
 
-    Tuple operator*(double scaler) const {
+    auto operator*(double scaler) const -> Tuple {
         return { x * scaler, y * scaler, z * scaler, w * scaler };
     }
 
-    Tuple operator/(double scaler) const {
+    auto operator/(double scaler) const -> Tuple {
         return { x / scaler, y / scaler, z / scaler, w / scaler };
     }
 
-    double magnitude() const {
+    [[nodiscard]] auto magnitude() const -> double {
         return std::sqrt(x * x + y * y + z * z + w * w);
     }
 
@@ -84,16 +84,16 @@ public:
         : Tuple(x, y, z, 0.0) {
     }
 
-    Vector normalize() const {
+    [[nodiscard]] auto normalize() const -> Vector {
         double length { magnitude() };
         return { getX() / length, getY() / length, getZ() / length };
     }
 
-    double dot(const Vector& other) const {
+    [[nodiscard]] auto dot(const Vector& other) const -> double {
         return getX() * other.getX() + getY() * other.getY() + getZ() * other.getZ() + getW() * other.getW();
     }
 
-    Vector cross(const Vector& other) const {
+    [[nodiscard]] auto cross(const Vector& other) const -> Vector {
         return { getY() * other.getZ() - getZ() * other.getY(),
             getZ() * other.getX() - getX() * other.getZ(),
             getX() * other.getY() - getY() * other.getX() };
