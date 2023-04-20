@@ -4,7 +4,7 @@
  * Abstraction for things like position, direction, and distance.
  *
  * Note: w = 1 is a point, w = 0 is a vector.
- *  * Adding a point (w=1) to a vector (w=0) reults in a point (w=1 + 0 = 1)
+ *  * Adding a point (w=1) to a vector (w=0) results in a point (w=1 + 0 = 1)
  *  * Adding 2 vectors (w=0) results in a vector (w=0 + 0 = 0)
  */
 
@@ -62,12 +62,12 @@ public:
         return Tuple { -x, -y, -z, -w };
     }
 
-    auto operator*(double scaler) const -> Tuple {
-        return Tuple { x * scaler, y * scaler, z * scaler, w * scaler };
+    auto operator*(double scalar) const -> Tuple {
+        return Tuple { x * scalar, y * scalar, z * scalar, w * scalar };
     }
 
-    auto operator/(double scaler) const -> Tuple {
-        return Tuple { x / scaler, y / scaler, z / scaler, w / scaler };
+    auto operator/(double scalar) const -> Tuple {
+        return Tuple { x / scalar, y / scalar, z / scalar, w / scalar };
     }
 
     [[nodiscard]] auto magnitude() const -> double {
